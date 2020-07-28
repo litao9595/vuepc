@@ -2,12 +2,13 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <div class="ceshi">文字</div>
-    <el-button>默认按钮</el-button>
+    <el-button @click="increment">默认按钮</el-button>
   </div>
 </template>
 
 <script>
 import {configUrl} from './js/configUrl'
+import{mapGetters,mapActions} from 'vuex'
 export default {
   name: 'HelloWorld',
   data () {
@@ -17,6 +18,10 @@ export default {
   },
   created(){
     console.log(configUrl)
+  },
+  methods:{
+    ...mapActions(['increment','reduce','resumeList','dataAppId']),
+    ...mapGetters(['count']),
   },
 }
 </script>
